@@ -1,14 +1,10 @@
 <?xml version="1.0"?>
-<testsuite name="Chrome Headless 88.0.4324.182 (Mac OS 10.14.6)" package="" timestamp="2021-02-19T15:57:20" id="0" hostname="MacBook-Pro-de-romain-2.local" tests="2" errors="0" failures="1" time="5.053">
+<testsuite name="Chrome Headless 88.0.4324.182 (Mac OS 10.14.6)" package="" timestamp="2021-02-22T14:24:06" id="0" hostname="MacBook-Pro-de-romain-2.local" tests="2" errors="0" failures="0" time="0.019">
   <properties>
     <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/88.0.4324.182 Safari/537.36"/>
   </properties>
-  <testcase name="DeliveryEffects should fire with a default price" time="5.05" classname="DeliveryEffects">
-    <failure type="">Error: Timeout - Async function did not complete within 5000ms (set by jasmine.DEFAULT_TIMEOUT_INTERVAL)
-    at &lt;Jasmine&gt;
-</failure>
-  </testcase>
-  <testcase name="DeliveryEffects should be created" time="0.003" classname="DeliveryEffects"/>
+  <testcase name="SimpleEffects should fire with a default price" time="0.016" classname="SimpleEffects"/>
+  <testcase name="SimpleEffects should be created" time="0.003" classname="SimpleEffects"/>
   <system-out>
     <![CDATA[
 ]]>

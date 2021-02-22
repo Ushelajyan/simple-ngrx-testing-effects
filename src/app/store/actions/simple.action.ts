@@ -1,15 +1,27 @@
-import { createAction, props} from '@ngrx/store';
+import {Action, createAction, props} from '@ngrx/store';
+
 
 export enum SimpleActionTypes {
-  UnavailablePrice = '[App] Unavailable Price',
-  ComputePrice = '[App] Price compute',
-  ComputePriceSuccess = '[App] Price Success'
+  UnavailablePrice = 'una',
+  ComputePrice = 'comp',
+  ComputePriceSuccess = 'comp succ'
 }
 
-export const UnavailablePrice = createAction('[App] Unavailable Price');
 
-export const ComputePriceSuccess = createAction('[App] Price Success',
-  props<{ data: any }>()
-);
-export const ComputePrice = createAction('[App] Price compute');
+export class UnavailablePrice implements Action {
+  readonly type = SimpleActionTypes.UnavailablePrice;
+
+}
+export class ComputePrice implements Action {
+  readonly type = SimpleActionTypes.ComputePrice;
+}
+export class ComputePriceSuccess implements Action {
+  readonly type = SimpleActionTypes.ComputePriceSuccess;
+  constructor(public data: any) {}
+}
+
+export type SimpleAction =
+  UnavailablePrice |
+  ComputePrice |
+  ComputePriceSuccess;
 

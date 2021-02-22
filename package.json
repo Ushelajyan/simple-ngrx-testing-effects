@@ -26,6 +26,7 @@
     "@ngrx/store-devtools": "^10.1.1",
     "jasmine-marbles": "^0.8.1",
     "karma-junit-reporter": "^2.0.1",
+    "rxjs": "^6.6.3",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },

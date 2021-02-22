@@ -1,38 +1,41 @@
-import { TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
-import { provideMockActions } from '@ngrx/effects/testing';
+import {TestBed} from '@angular/core/testing';
+import {of} from 'rxjs';
+import {provideMockActions} from '@ngrx/effects/testing';
 import {
-  SimpleActionTypes,
+  SimpleActionTypes, UnavailablePrice,
 } from '../actions/simple.action';
 import {SimpleEffects} from './simple.effect';
 import {MockStore, provideMockStore} from '@ngrx/store/testing';
-import {Store} from '@ngrx/store';
 
 describe('SimpleEffects', () => {
-  let actions$: any;
-  let effects: SimpleEffects;
-  let store: MockStore<Store>;
-  beforeEach(() => {
+  let store;
+
+  const createEffects = (actions$) => {
     TestBed.configureTestingModule({
       providers: [
         SimpleEffects,
         provideMockActions(() => actions$),
-        provideMockStore() ,
+        provideMockStore(),
       ],
     });
     store = TestBed.inject(MockStore);
-    effects = TestBed.inject(SimpleEffects);
-  });
+    return TestBed.inject(SimpleEffects);
+  };
   it('should be created', () => {
+    const effects = createEffects(of(undefined));
+
     expect(effects).toBeTruthy();
   });
+
   it('should fire with a default price', (done) => {
     // Mock the action that we use to activate the effect
-    actions$ = of(SimpleActionTypes.UnavailablePrice);
-    // Subscribe to the effect
+    const actions$ = of( new UnavailablePrice());
+    // Create the effect with your given mock
+    const effects = createEffects(actions$);
+    // the expected results verification
     effects.getPriceAfterLocalCartUpdate.subscribe((res) => {
       // the expected results verification
-      expect(res).toEqual(SimpleActionTypes.ComputePrice);
+      expect(res.type).toEqual(SimpleActionTypes.ComputePrice);
       // And all done !
       done();
     });
